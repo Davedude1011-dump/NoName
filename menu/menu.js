@@ -107,8 +107,8 @@ var pageName = currentPath.split('/').pop();
 
 console.log(pageName)
 
-if (pageName == "index.html" || "") { var OrbitArray = OrbitTypes.OrbitMain }
-else if (pageName == "game-menu.html") { var OrbitArray = OrbitTypes.OrbitGame }
+var OrbitArray = OrbitTypes.OrbitMain
+if (pageName == "game-menu.html") { var OrbitArray = OrbitTypes.OrbitGame }
 
 else if (pageName == "board-games.html") { var OrbitArray = OrbitTypes.OrbitGameBoard }
 else if (pageName == "card-games.html") { var OrbitArray = OrbitTypes.OrbitGameCard }
