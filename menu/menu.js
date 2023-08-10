@@ -100,6 +100,8 @@ OrbitTypes = {
     ],
 }
 
+function isLandscape() { return window.innerWidth > window.innerHeight; }
+
 const OrbitOuter = document.querySelector(".orbit-outer")
 
 var currentPath = window.location.pathname;
@@ -151,10 +153,15 @@ for (let i = 0; i < OrbitArray.length; i++) {
         NewOrbitButton.innerHTML = Icon
         NewOrbitButton.style.animationDuration = Timing
         NewOrbitButton.onclick = function() {
-            CollapseOrbit()
-            setTimeout(function() {
+            if (isLandscape()) {
+                CollapseOrbit()
+                setTimeout(function() {
+                    window.open(Destination, "_self")
+                }, 1500)
+            }
+            else {
                 window.open(Destination, "_self")
-            }, 1500)
+            }
         }
     
         NewOrbit.appendChild(NewOrbitButton)
@@ -172,28 +179,35 @@ for (let i = 0; i < OrbitArray.length; i++) {
         NewCenterButton.innerHTML = Icon
         if (Destination != "") {
             NewCenterButton.onclick = function() {
+                if (isLandscape()) {
                     CollapseOrbit()
                     setTimeout(function() {
                         window.open(Destination, "_self")
                     }, 1500)
+                }
+                else {
+                    window.open(Destination, "_self")
+                }
             }
             NewCenterButton.classList.add("center-button-active")
-            NewCenterButton.addEventListener("mouseenter", function() {
-                var AllRingShells = document.querySelectorAll(".ring-shell");
-                for (let j = 0; j < AllRingShells.length; j++) {
-                    if (!AllRingShells[j].querySelector(".center-button-active")) {
-                        AllRingShells[j].style.height = "85vh";
+            if (isLandscape()) {
+                NewCenterButton.addEventListener("mouseenter", function() {
+                    var AllRingShells = document.querySelectorAll(".ring-shell");
+                    for (let j = 0; j < AllRingShells.length; j++) {
+                        if (!AllRingShells[j].querySelector(".center-button-active")) {
+                            AllRingShells[j].style.height = "85vh";
+                        }
                     }
-                }
-            })
-            NewCenterButton.addEventListener("mouseleave", function() {
-                var AllRingShells = document.querySelectorAll(".ring-shell");
-                for (let j = 0; j < AllRingShells.length; j++) {
-                    if (!AllRingShells[j].querySelector(".center-button-active")) {
-                        AllRingShells[j].style.height = "70vh";
+                })
+                NewCenterButton.addEventListener("mouseleave", function() {
+                    var AllRingShells = document.querySelectorAll(".ring-shell");
+                    for (let j = 0; j < AllRingShells.length; j++) {
+                        if (!AllRingShells[j].querySelector(".center-button-active")) {
+                            AllRingShells[j].style.height = "70vh";
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     
         NewOrbitShell.appendChild(NewCenterButton)
