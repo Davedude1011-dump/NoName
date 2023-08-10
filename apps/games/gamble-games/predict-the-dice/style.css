@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #D9D9D9;
+    --background-color: #0B1422;
+    --gray: #3C3C3C;
+    --gray-faded: #3c3c3c80;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-color);
+}
+
+/*
+<body>
+    <div class="left-bar">
+        <div class="left-bar-title">Pay-out Percentage</div>
+        <div class="payout-percent"></div>
+        <div class="bars-outer">
+            <div class="bar-shell">
+                <div class="bar-value">1</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">2</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">3</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">4</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">5</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">6</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">7</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">8</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">9</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">10</div>
+                <div class="bar-check"></div>
+            </div>
+            <div class="bar-shell">
+                <div class="bar-value">11</div>
+                <div class="bar-check"></div>
+            </div>
+        </div>
+        <button class="roll-button">Roll</button>
+        <input placeholder="Betting Amount..." type="text" class="bet-amount">
+    </div>
+*/
+.left-bar {
+    position: absolute;
+    width: 12vw;
+    height: 90vh;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+
+    background-color: var(--white);
+
+    bottom: 0;
+    left: 2.5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 200px;
+}
+
+.left-bar-title {
+    font-size: x-large;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: bold;
+    color: var(--gray);
+
+    margin-top: 15%;
+    text-align: center;
+}
+.payout-percent {
+    font-size: xx-large;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: bold;
+    color: var(--gray);
+
+    margin-top: 5%;
+    text-align: center;
+}
+
+.bars-outer {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 15%;
+}
+.bar-shell {
+    width: 100%;
+    height: 4vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--gray-faded);
+    text-align: center;
+
+    cursor: pointer;
+}
+.bar-shell:nth-child(odd):hover {
+    filter: brightness(105%);
+}
+.bar-shell:nth-child(even):hover {
+    filter: brightness(95%);
+}
+.selected {
+    color: var(--gray) !important;
+}
+.bar-shell:nth-child(odd) {
+    background-color: #E3E3E3;
+}
+.bar-shell:nth-child(even) {
+    background-color: var(--white);
+}
+
+.total-money {
+    width: 100%;
+    height: 4vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 4vh;
+
+    font-size: large;
+    font-weight: bold;
+    color: var(--gray);
+    text-align: center;
+
+    background-color: #E3E3E3;
+}
+
+button.roll-button {
+    width: 80%;
+    height: 4vh;
+
+    background-color: white;
+    border-radius: 0.8vh;
+    border: none;
+
+    margin-top: 5%;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    color: var(--gray);
+
+    cursor: not-allowed;
+    transition: 0.2s;
+}
+button.roll-button:hover {
+    letter-spacing: 2px;
+    translate: 0 -2px;
+}
+input.bet-amount {
+    width: 70%;
+    height: 3vh;
+
+    margin-top: 2%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    color: var(--gray);
+
+    border-radius: 0.6vh;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*
+    <div class="dice-outer">
+        <svg class="left-dice" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_28_49)"><path d="M38.5 0C41.5376 0 44 2.46243 44 5.5V38.5C44 41.5376 41.5376 44 38.5 44H5.5C2.46243 44 0 41.5376 0 38.5V5.5C0 2.46243 2.46243 0 5.5 0H38.5Z" fill="url(#paint0_linear_28_49)"/><path d="M22 24.75C23.5188 24.75 24.75 23.5188 24.75 22C24.75 20.4812 23.5188 19.25 22 19.25C20.4812 19.25 19.25 20.4812 19.25 22C19.25 23.5188 20.4812 24.75 22 24.75Z" fill="#1C1C1F"/></g><defs><linearGradient id="paint0_linear_28_49" x1="2200" y1="0" x2="2200" y2="4400" gradientUnits="userSpaceOnUse"><stop stop-color="#F8F8FB"/><stop offset="1" stop-color="#EEEFF6"/></linearGradient><clipPath id="clip0_28_49"><rect width="44" height="44" fill="white"/></clipPath></defs></svg>
+        <svg class="right-dice" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_28_39)"><path d="M38.5 0C41.5376 0 44 2.46243 44 5.5V38.5C44 41.5376 41.5376 44 38.5 44H5.5C2.46243 44 0 41.5376 0 38.5V5.5C0 2.46243 2.46243 0 5.5 0H38.5Z" fill="url(#paint0_linear_28_39)"/><path d="M22 18.0714C23.5188 18.0714 24.75 16.8402 24.75 15.3214C24.75 13.8026 23.5188 12.5714 22 12.5714C20.4812 12.5714 19.25 13.8026 19.25 15.3214C19.25 16.8402 20.4812 18.0714 22 18.0714Z" fill="#1C1C1F"/><path d="M22 30.8393C23.5188 30.8393 24.75 29.6081 24.75 28.0893C24.75 26.5705 23.5188 25.3393 22 25.3393C20.4812 25.3393 19.25 26.5705 19.25 28.0893C19.25 29.6081 20.4812 30.8393 22 30.8393Z" fill="#1C1C1F"/></g><defs><linearGradient id="paint0_linear_28_39" x1="2200" y1="0" x2="2200" y2="4400" gradientUnits="userSpaceOnUse"><stop stop-color="#F8F8FB"/><stop offset="1" stop-color="#EEEFF6"/></linearGradient><clipPath id="clip0_28_39"><rect width="44" height="44" fill="white"/></clipPath></defs></svg>
+    </div>
+</body>
+*/
+
+.dice-outer {
+    display: flex;
+    flex-direction: row;
+}
+.right-dice {
+    margin-left: 20px;
+}
+
+.right-dice, .left-dice {
+    height: 10vh;
+    aspect-ratio: 1/1;
+}
+
+.back-button {
+    position: absolute;
+    font-size: x-large;
+    color: var(--white);
+    right: 0;
+    top: 0;
+    margin: 2vh;
+    border-bottom: 0px solid white;
+
+    transition: 0.2s;
+    cursor: pointer;
+}
+.back-button:hover {
+    border-width: 5px;
+    translate: 0 -5px;
+}

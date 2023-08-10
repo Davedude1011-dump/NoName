@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="function.js" defer></script>
+    </head>
+    <body>
+        <div class="left-bar">
+            <div class="left-bar-title">Pay-out Percentage</div>
+            <div class="payout-percent">+0%</div>
+
+            <div class="bars-outer">
+                <div class="bar-shell" onclick="SelectNumber(this)">2</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">3</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">4</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">5</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">6</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">7</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">8</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">9</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">10</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">11</div>
+                <div class="bar-shell" onclick="SelectNumber(this)">12</div>
+            </div>
+            <div class="total-money"></div>
+            <button class="roll-button">Roll</button>
+            <input placeholder="Betting Amount..." type="text" class="bet-amount">
+        </div>
+        <div class="dice-outer">
+            <div class="left-dice"></div>
+            <div class="right-dice"></div>
+        </div>
+        <div class="back-button" onclick="window.open('../gamble-games.html', '_self')">Back</div>
+    </body>
+</html>

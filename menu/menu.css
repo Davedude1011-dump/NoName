@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #0B1422;
+    --forground-color: #D9D9D9;
+    --ring-color: #d9d9d90d;
+    --gray: #3C3C3C;
+}
+
+body {
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+.orbit-outer {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring-shell {
+    position: absolute;
+    height: 70vh;
+    aspect-ratio: 1/1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    transition: 0.5s;
+}
+
+.ring {
+    height: 80%;
+    aspect-ratio: 1/1;
+    
+    border-radius: 50%;
+    border: 2px solid var(--ring-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+
+    transition: 1s;
+}
+.ring-button {
+    translate: 50%;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+
+    pointer-events: all;
+    cursor: pointer;
+    border: none;
+
+    animation: rotate-counterclockwise linear infinite;
+    outline: 0px solid var(--background-color); /* Set a transparent border to reserve space for the detached border */
+    box-shadow: 0 0 0 0px var(--ring-color); /* Adjust the spread value and color as needed */
+
+    transition: 0.2s;
+}
+.ring-button:hover {
+    outline: 15px solid var(--background-color); /* Set a transparent border to reserve space for the detached border */
+    box-shadow: 0 0 0 18px var(--ring-color); /* Adjust the spread value and color as needed */
+}
+
+@keyframes rotate-counterclockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes spin-0 { 100% { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); } }
+@-webkit-keyframes spin-90 { 100% { -webkit-transform: rotate(450deg); -moz-transform: rotate(450deg); -ms-transform: rotate(450deg); -o-transform: rotate(450deg); transform: rotate(450deg); } }
+@-webkit-keyframes spin-180 { 100% { -webkit-transform: rotate(540deg); -moz-transform: rotate(540deg); -ms-transform: rotate(540deg); -o-transform: rotate(540deg); transform: rotate(540deg); } }
+@-webkit-keyframes spin-270 { 100% { -webkit-transform: rotate(630deg); -moz-transform: rotate(630deg); -ms-transform: rotate(630deg); -o-transform: rotate(630deg); transform: rotate(630deg); } }
+.ring-rotate-0 { -webkit-animation: spin-0 20s linear infinite; animation: spin-0 20s linear infinite; }
+.ring-rotate-90 { -webkit-animation: spin-90 20s linear infinite; animation: spin-90 20s linear infinite; }
+.ring-rotate-180 { -webkit-animation: spin-180 20s linear infinite; animation: spin-180 20s linear infinite; }
+.ring-rotate-270 { -webkit-animation: spin-270 20s linear infinite; animation: spin-270 20s linear infinite; }
+
+.center-button {
+    width: 30%;
+    height: 30%;
+
+    background-color: var(--forground-color);
+    border-radius: 50%;
+
+    pointer-events: all;
+    /*cursor: pointer;*/
+    border: none;
+
+    font-weight: bold;
+    font-size: xx-large;
+    color: var(--gray);
+    letter-spacing: 1.2px;
+    
+    transition: 0.5s;
+    outline: 0vh solid var(--ring-color)
+}
+.center-button-active:hover {
+    cursor: pointer;
+    outline: 2vh solid var(--ring-color);
+    filter: brightness(90%);
+    transform: rotate(15deg);
+}
+
+/*
+<div class="menu-outer">
+    <div class="ring">
+        <button class="ring-button">1</button>
+    </div>
+    <div class="ring">
+        <button class="ring-button">2</button>
+    </div>
+    <div class="ring">
+        <button class="ring-button">3</button>
+    </div>
+    <button class="center-button">()</button>
+</div>
+*/
+
+.version {
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    margin: 1vh;
+}
