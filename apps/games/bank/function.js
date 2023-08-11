@@ -105,3 +105,12 @@ function ApplyInterest() {
     RefreshMoney()
 }
 ApplyInterest()
+
+var CurrencyOptions = [
+    "₪",
+    "₪",
+    "₪",
+    "₪",
+    "₪",
+    "₪"
+]

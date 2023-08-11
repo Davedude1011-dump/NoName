@@ -77,7 +77,7 @@ function RefreshMoney() {
     localStorage.setItem("PlayerStats", JSON.stringify(PlayerStats))
     console.log(PlayerStats)
 
-    document.querySelector(".total-money").textContent = "Ω " + Math.floor(PlayerAccountMoney)
+    document.querySelector(".total-money").textContent = "₪ " + Math.floor(PlayerAccountMoney)
 
     let BetAmount = Number(document.querySelector(".bet-amount").value)
     if (BetAmount > Math.floor(PlayerAccountMoney) || document.querySelector(".bet-amount").value == "") {
